@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="container">
+        <div class="row">            
+            <div class="span12">
+                {% for faq in faqs %}
+
+                    <div class="well"> 
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <h4>
+                                    <a href="{% url 'faq' faq.slug %}">{{ faq.question }}</a>
+                                </h4>
+                                <div style="padding-top:10px;">
+                                    {{ faq.answer|safe|truncatewords:100 }}
+
+                                    {% if faq.answer|safe|linebreaksbr != faq.answer|safe|linebreaksbr|truncatewords:100 %}
+                                        <a href="{% url 'faq' faq.slug %}"><br /><br /> continue reading </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>                        
+                        
+                {% empty %}
+
+                    <div class="row-fluid">
+                      <div class="span12 ">
+                        <div class="well">
+                            <p>There are not FAQ yet!</p>
+                        </div>           
+                      </div>
+                    </div>     
+                    
+                {% endfor %}         
+            </div>
+        </div>   
+    </div>  
+
+{% endblock %}

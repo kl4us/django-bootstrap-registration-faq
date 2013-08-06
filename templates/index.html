@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<p>
+	This is a basic Django project with some existing apps included. 
+	A discovered pinax (and his basic projects) few months ago but i don't like because it isn't simple for a new (noob like me) django developer.
+
+	This project includes the following apps:
+</p>
+<ul>
+	<li>django-registration (for user registration)</li>
+	<li>django-bootstrap-toolkit (for bootstrap forms)</li>
+	<li>django-debug-toolbar (for local debug)</li>
+</ul>
+<p>
+	I also added a simple Faq app. For this app is required django-summernote to have a simple WYSIWYG editor based on Twitter's Bootstrap.
+</p>
+
+{% endblock %}
